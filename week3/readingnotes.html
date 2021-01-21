@@ -3,14 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/main.scss">
   <title>Document</title>
 </head>
 <body>
-  <h1>Readings Notes</h1>
-  <ul>
-    <li>Variables are introduced in SCSS as such: '$my-Variable: 42px;'. Then you can assigng that variable to any selector to use it. </li>
-    <li>Data Types:<br>String: doesn't have to be in quotes but it's better that way.<br>number <br>color <br>list <br>map <br> bool <br>null</li>
-  </ul>
+  <header>
+    <h1>WDD 331 Week03 <br> Readings Notes</h1>
+  </header>
+  <main>
+    <ul>
+      <li>
+        <h2>Variables</h2> 
+        <p>Variables are introduced in SCSS as such: '$my-Variable: 42px;'. Then you can assigng that variable to any selector to use it.</p>
+      </li>
+      <li><h2>Data Types</h2>String<br>Number <br>Color <br>List <br>Map <br>Bool <br>Null</li>
+      <li><h2>Strings</h2>Don't have to be in quotes but it's better that way. Can be concatenated together as well.</li>
+      <li><h2>Numbers</h2>Numbers are often times the items you want to stare in variables because they're likely to be the moving parst of your application. <br><br>Sass supports the five basic operators * % / + - <br><br>Because the slash '/' symbol has meaning in CSS, division is a bit more complex. Division takes place when you store the value in a variable or it is returned by a function, if the value is surrounded by parentheses, or if the value is used as part of another arithmetic expression.</li>
+      <li><h2>A Note on Units in Sass</h2>In order to convert a number into a unit, you must multiply the number by one of those units (e.g. 42 * 1px = 42px). In order to convert a unit to a number, you must divide the unit by one of it's own kind (e.g. 42px / 1px = 42).</li>
+      <li><h2>Colors</h2>A color can be expressed by using rgb/rgba, hsl/hsla, hexadecimal notation, or a keyword (e.g. blue). <br><br> CSS color keywords are discouraged. <br><br>Storing colors in variables is a very good idea in Sass. This makes it very easy to reference the color(s) being used for the project without having to remember the color specifications. <br><br>If you have a variable named '$color: blue', you can use it in a variety of ways including 'background-color: lighten($color, 20%);' which will give you a blue color that is 20% lighter than the original. </li>
+      <li><h2>Booleans</h2>Booleans are somewhat useless in CSS, however, they can be used when coupled with conditional statements (e.g. @if $support-legacy-browsers: true;) <br><br>Booleans are perfect for handling toggle-like options. <br><br>Sass does not have the bang operator (!) to get the opposite of a value. Instead, it provides the 'not' keyword (e.g. $bool: false ... @if not $bool {}).</li>
+      <li><h2>Null</h2>'null' is both the value and the type. It has to be lowercase and unquoted for it to be from null type. Otherwise it is from type string.<br><br>
+      Example:<br><br>
+      @mixin absolute($top: null, $right: null, $bottom: null, $left: null) { <br><br>
+      &emsp; position: absolute; <br>
+      &emsp; top: $top; <br>
+      &emsp; right: $right; <br>
+      &emsp; bottom: $bottom; <br>
+      &emsp; left: $left; <br>
+      <br>
+      }
+      <br><br>
+      .foo { <br><br>
+      @include absolute($top: 13px, $left: 37px); <br><br>
+      } <br><br>
+      <h3>Result:</h3> <br><br>
+      .foo { <br><br>
+        &emsp; position: absolute; <br>
+        &emsp; top: 13px; <br>
+        &emsp; left: 37px; <br><br>
+      }</li>
+      <li><h2>Lists</h2>A Sass list is a collection of zero or more values separated by either spaces or commas and the values can be of any type. <br><br> An example of a Sass list: <br> $list: (42, hotpink, 'kittens'); <br><br> In order to make a value a list, add a trailing comma after the last value: <br><br> $value: ('foo',); <br>$length: length($value); //1 <br>$type: type-of($value); // list</li>
+      <li><h2>Maps</h2>Maps are key value pairs, in which the map uses its keys to find their associated value. <br><br> Example: <br><br> $message-themes: ( <br><br> &emsp; 'info': deepskyblue, <br> &emsp; 'danger': tomato, <br> &emsp; 'warning': gold, <br> &emsp; 'confirm': lightgreen, <br><br> ); <br><br><br> Then use: <br><br> .message-info { <br><br> color: map-get($message-themes, 'info');  <br><br> } <br><br> .message-danger { <br><br> color: map-get($message-themes, 'danger'):  <br><br> } <br><br> .message-warning { <br><br> color: map-get($message-themes, 'warning');  <br><br> } <br><br> .message-confirm {  <br><br> color: map-get($message-themes, 'confirm');  <br><br> } <br><br> It is possible to add a trailing comma to the last pair of a map. It is recommended doing so as it makes adding new values easier, and git diffs(?) simpler. <br><br> Also, an empty map is described exactly like an empty list (()).</li>
+      <li><h2>Scope</h2>By default, all variables declared within a scope are local to that scope only. Per usual, global variables outside of a scope will be available anywhere. <br><br> Variable Shadowing: <br><br> A variable whose name already exists in the global namespace is declared in an inner scope for the purpose of redefiing that variable only within that local scope. <br><br> Example: <br><br> $padding: 10px; <br><br> .module { <br><br> &emsp; $padding: 20px; <br> &emsp; padding: $padding; // 20px <br><br> } <br><br> .foo { <br><br> &emsp; padding: $padding; // 10px; <br><br>} <br><br><br> The !global Flag: <br><br> The global variable is not only shadowed by the local variable, but it is replaced by the new value. This means that the global variable will now match the local variable's value;<br><br> The !default Flag: <br><br> Assigns a variable if it doesn't have a value yet -- the !default Flag. <br><br></li>
+      <li><h2>Interpolation</h2>In order to concatenate several chunks of strings including variables in a nice, neat way, use this interpolation syntax: <br><br> $name: 'Huge'; <br><br> .foo { <br><br> &emsp; content: 'Hello #{$name}!';<br><br>} <br><br>Example: <br><br> .main { <br><br> $sidebar-width: 300px; <br> width: calc(100% - #{$sidebar-width}); // calc(100% - 300px) <br><br>} <br><br> Interpolating @media: <br><br> $media: screen;<br> $feature: min-width; <br> $value: 1337px; <br><br>@media #{$media} and ($feature: $value) {<br>// ... <br>} <br><br> To use a variable in a selector, we have to interpolate it: <br><br> $section: 'home'; <br> .section-#{$section} { <br><br> &emsp; background: transparent; <br><br>}</li>
+      <li><h2>Creating Meaningful Variables</h2>Hyphenate words in your variable name and DO NOT use camel case or underscores. And when naming variables, remember that their values are able to be changed so don't name the variable something directly attached to a value.<br><br>Naming colors can be done using something like $gold as long as the hue of the color isn't changed too much later on. <br><br>Example: <br><br>$gold: hsl(42, 78%, 54%); <br>$dark-blue: rgb(13, 33, 70); <br><br>$primary-theme-color: $gold; <br>$secondary-theme-color: $dark-blue; <br><br>Avoid naming your variables after the way they're used such as $border-color. While it might be easy at first, you will eventually use those variables for other things and the meaning will get lost.</li>
+      <li><h2>CSS Custom Properties or Sass Variables</h2>CSS variables are most likely meant to eventually replace Sass variables, however, they both have subtle, important differences. <br><br> CSS variables are actually called CSS custom properties because they aren't true variables by definition. Custom properties must start with two hyphens (--) to be recognized and the var(...) function has to be used to retrive their value: <br><br> :root { <br><br>--main-color: #ab39d3;<br><br> } <br><br> body { <br><br> background-color: var(--main-color); <br><br>} <br><br>The first main difference between CSS custom properties and Sass Variables is that CSS custom properties respect the cascade principle and should be defined on the uppermost element to flow down the document. Sass variables are scoped and rely on a global scope to be accessible anywhere.</li>
+    </ul>
+  </main>
+  <footer>
+
+  </footer>
 </body>
 </html>

@@ -1,0 +1,98 @@
+$nav-li-border: solid 2px black;
+
+@mixin remove-ul-indent {
+  margin: 0;
+  padding: 0;
+}
+
+// Entire navigation section
+.sidebar {
+  margin-left: 600px;
+  position: absolute;
+  border: $nav-li-border;
+  padding: .5em;
+  margin-right: 10px;
+}
+
+//'Select a Design' wrapper
+.design-selection nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-decoration: none;
+  @include remove-ul-indent();
+}
+
+.design-selection li {
+  list-style-type: none;
+  margin: 5px;
+  height: 100px;
+  padding: 20px;
+  text-align: center;
+  border: $nav-li-border;
+}
+
+.design-selection a {
+  text-decoration: none;
+}
+
+.design-selection li:nth-of-type(odd) {
+  grid-column: 1;
+}
+
+.design-selection li:nth-of-type(even) {
+  grid-column: 2;
+}
+
+// design name under 'select a design' section
+.design-name {
+  color: black;
+  display: block;
+  font-size: 20px;
+}
+
+// designer name under 'select a design' section
+.designer-name {
+  color: black;
+  display: block;
+  font-size: 15px;
+}
+
+
+// ARCHIVE SECTION
+
+.design-archives {
+  margin: 10px;
+}
+
+.design-archives ul {
+  @include remove-ul-indent();
+}
+
+.design-archives li {
+  list-style-type: none;
+}
+
+.design-archives a {
+  text-decoration: none;
+  color: black;
+}
+
+// RESOURCES SECTION
+
+.zen-resources {
+  margin: 10px;
+}
+
+.zen-resources ul {
+  @include remove-ul-indent();
+}
+
+.zen-resources li {
+  list-style-type: none;
+}
+
+.zen-resources a,
+abbr {
+  text-decoration: none;
+  color: black;
+}

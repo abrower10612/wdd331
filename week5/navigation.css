@@ -1,0 +1,87 @@
+.sidebar {
+  margin-left: 600px;
+  position: absolute;
+  border: solid 2px black;
+  padding: 0.5em;
+  margin-right: 10px;
+}
+
+.design-selection nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.design-selection li {
+  list-style-type: none;
+  margin: 5px;
+  height: 100px;
+  padding: 20px;
+  text-align: center;
+  border: solid 2px black;
+}
+
+.design-selection a {
+  text-decoration: none;
+}
+
+.design-selection li:nth-of-type(odd) {
+  grid-column: 1;
+}
+
+.design-selection li:nth-of-type(even) {
+  grid-column: 2;
+}
+
+.design-name {
+  color: black;
+  display: block;
+  font-size: 20px;
+}
+
+.designer-name {
+  color: black;
+  display: block;
+  font-size: 15px;
+}
+
+.design-archives {
+  margin: 10px;
+}
+
+.design-archives ul {
+  margin: 0;
+  padding: 0;
+}
+
+.design-archives li {
+  list-style-type: none;
+}
+
+.design-archives a {
+  text-decoration: none;
+  color: black;
+}
+
+.zen-resources {
+  margin: 10px;
+}
+
+.zen-resources ul {
+  margin: 0;
+  padding: 0;
+}
+
+.zen-resources li {
+  list-style-type: none;
+}
+
+.zen-resources a,
+abbr {
+  text-decoration: none;
+  color: black;
+}
+
+/*# sourceMappingURL=navigation.css.map */

@@ -9,7 +9,8 @@
 </head>
 <body>
   <header>
-    <h1>WDD 331 Week03 <br> Readings Notes</h1>
+    <h1>WDD 331 Week03 Notes</h1>
+    <h2>Jump Start Sass, Ch. 3</h2>
   </header>
   <main>
     <ul>
@@ -49,6 +50,13 @@
       <li><h2>Interpolation</h2>In order to concatenate several chunks of strings including variables in a nice, neat way, use this interpolation syntax: <br><br> $name: 'Huge'; <br><br> .foo { <br><br> &emsp; content: 'Hello #{$name}!';<br><br>} <br><br>Example: <br><br> .main { <br><br> $sidebar-width: 300px; <br> width: calc(100% - #{$sidebar-width}); // calc(100% - 300px) <br><br>} <br><br> Interpolating @media: <br><br> $media: screen;<br> $feature: min-width; <br> $value: 1337px; <br><br>@media #{$media} and ($feature: $value) {<br>// ... <br>} <br><br> To use a variable in a selector, we have to interpolate it: <br><br> $section: 'home'; <br> .section-#{$section} { <br><br> &emsp; background: transparent; <br><br>}</li>
       <li><h2>Creating Meaningful Variables</h2>Hyphenate words in your variable name and DO NOT use camel case or underscores. And when naming variables, remember that their values are able to be changed so don't name the variable something directly attached to a value.<br><br>Naming colors can be done using something like $gold as long as the hue of the color isn't changed too much later on. <br><br>Example: <br><br>$gold: hsl(42, 78%, 54%); <br>$dark-blue: rgb(13, 33, 70); <br><br>$primary-theme-color: $gold; <br>$secondary-theme-color: $dark-blue; <br><br>Avoid naming your variables after the way they're used such as $border-color. While it might be easy at first, you will eventually use those variables for other things and the meaning will get lost.</li>
       <li><h2>CSS Custom Properties or Sass Variables</h2>CSS variables are most likely meant to eventually replace Sass variables, however, they both have subtle, important differences. <br><br> CSS variables are actually called CSS custom properties because they aren't true variables by definition. Custom properties must start with two hyphens (--) to be recognized and the var(...) function has to be used to retrive their value: <br><br> :root { <br><br>--main-color: #ab39d3;<br><br> } <br><br> body { <br><br> background-color: var(--main-color); <br><br>} <br><br>The first main difference between CSS custom properties and Sass Variables is that CSS custom properties respect the cascade principle and should be defined on the uppermost element to flow down the document. Sass variables are scoped and rely on a global scope to be accessible anywhere.</li>
+    </ul>
+    <h2>Jump Start Sass, Ch. 4</h2>
+    <ul>
+      <li><h2>Functions</h2>A function definition starts with @function, then the name of the function, then a pair of parentheses - possibly, but not necessarily containing parameters passed to the function. <br><br> Example: <br><br>@function get-base-url() {<br><br>&emsp; @return '/assets/';<br><br>} <br><br>Usage: <br><br>.module { <br><br> background-image: url(get-base-url() + 'unicorn.png');<br><br> } <br><br>A Sass function will return an error if the @return directive is not included. <br><br>Global shadowing and local/global rules apply to functions just like variables. <br><br> Example of a function with numbers: <br><br> @function multiply($a, $b) {<br><br> &emsp;return ($a * $b); <br><br>} <br><br>Optional Parameters: <br><br>@function multiply($a, $b: 2) { <br><br>&emsp;@return ($a * $b); <br><br>} <br><br>
+      </li>
+      <li><h2>Mixins</h2>While a function returns a value, a mixin outputs CSS code.</li>
+      <li><h2>Summary</h2>Sass does several things that CSS cannot do at the moment: Variables, Nesting, Operators, Controls (e.g. if/else, etc), and functions.</li>
     </ul>
   </main>
   <footer>

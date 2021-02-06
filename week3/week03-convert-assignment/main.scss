@@ -1,0 +1,127 @@
+/* SMALL VIEW */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+$tancolor: #FAEBD7;
+$med-min-width: 600px;
+$large-min-width: 800px;
+$img-max-width: 200px;
+
+@mixin background-blue {
+  background-color: #6495ED;
+}
+
+@mixin blue {
+  color:#6495ED;
+}
+
+html {
+  background-color: $tancolor;
+}
+
+header {
+  @include background-blue;
+  text-align: right;
+  padding: 20px;
+  a {
+    text-decoration: none;
+    color: $tancolor;
+  }
+  ul li {
+    list-style-type: none;
+    padding: 5px;
+  }
+}
+
+nav {
+  a {
+    color: $tancolor;
+  }
+  a:active {
+    color: $tancolor;
+  }
+  nav a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+main {
+  background-color: $tancolor;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+article {
+  background-color: white;
+  margin: 25px 15px;
+  padding: 20px 30px;
+  box-shadow: 3px 3px 5px rgb(177, 176, 176);
+  article a {
+    text-decoration: none;
+    @include blue;
+  }
+  article a:active {
+    color: #DEB887;
+  }
+  article a:hover {
+    text-decoration: underline;
+  }
+  article div {
+    color: gray;
+  }
+}
+
+h2 {
+  margin-top: 5px;
+  text-align: left;
+  h2 a:active {
+    color: #DEB887;
+  }
+  h2 a:hover {
+    color: #6495ED;
+    text-decoration: underline;
+  }
+}
+
+h1, h2 a {
+  color: black;
+  font-family: lora;
+}
+
+figure {
+  margin: 0 auto;
+  max-width: $img-max-width;
+  figure img {
+    max-width: $img-max-width;
+  }
+}
+
+/* MEDIUM VIEW */
+
+@media only screen and (min-width: $med-min-width) {
+
+  div {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  nav a {
+    padding: 0;
+    font-size: 85%
+  }
+
+}
+
+/* LARGE VIEW */
+
+@media only screen and (min-width: $large-min-width) {
+
+  figure {
+    margin: 30px 0;
+  }
+
+}

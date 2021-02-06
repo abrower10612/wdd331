@@ -1,0 +1,20 @@
+
+styles.css
+  2:2   ✖  Expected newline after ","                      selector-list-comma-newline-after     
+  2:5   ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+  2:12  ✖  Expected newline after ","                      selector-list-comma-newline-after     
+  2:15  ✖  Expected double colon pseudo-element notation   selector-pseudo-element-colon-notation
+ 13:1   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 16:1   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 16:21  ✖  Expected newline after ","                      selector-list-comma-newline-after     
+ 20:1   ✖  Expected empty line before at-rule              at-rule-empty-line-before             
+ 28:1   ✖  Expected empty line before at-rule              at-rule-empty-line-before             
+ 46:1   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 50:1   ✖  Expected empty line before at-rule              at-rule-empty-line-before             
+ 62:3   ✖  Expected empty line before rule                 rule-empty-line-before                
+ 68:3   ✖  Expected newline after ","                      selector-list-comma-newline-after     
+ 68:7   ✖  Expected newline after ","                      selector-list-comma-newline-after     
+ 68:11  ✖  Expected newline after ","                      selector-list-comma-newline-after     
+ 68:15  ✖  Expected newline after ","                      selector-list-comma-newline-after     
+ 68:19  ✖  Expected newline after ","                      selector-list-comma-newline-after
+
